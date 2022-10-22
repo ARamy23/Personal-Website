@@ -7,7 +7,6 @@ import logoProba from '@/images/logos/proba.svg'
 import logoDCA from '@/images/logos/dca.svg'
 import logoCamelan from '@/images/logos/camelan.svg'
 import Image from 'next/future/image'
-import iconPromotion from '@/images/icons/promotion.svg'
 
 const resume = [
     {
