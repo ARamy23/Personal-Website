@@ -44,7 +44,7 @@ export default function About() {
         <title>About - Ahmed Ramy</title>
         <meta
           name="description"
-          content="Hello there! 👋\nI live in Dubai, where I design the future."
+          content="I’m Ahmed Ramy. I live in Dubai, where I code the future."
         />
       </Head>
       <Container className="mt-16 sm:mt-32">
@@ -95,16 +95,13 @@ export default function About() {
           </div>
           <div className="lg:pl-20">
             <ul role="list">
-              <SocialLink href="#" icon={TwitterIcon}>
+              <SocialLink href="https://twitter.com/iDevAR23" icon={TwitterIcon}>
                 Follow on Twitter
               </SocialLink>
-              <SocialLink href="#" icon={InstagramIcon} className="mt-4">
-                Follow on Instagram
-              </SocialLink>
-              <SocialLink href="#" icon={GitHubIcon} className="mt-4">
+              <SocialLink href="https://github.com/ARamy23" icon={GitHubIcon} className="mt-4">
                 Follow on GitHub
               </SocialLink>
-              <SocialLink href="#" icon={LinkedInIcon} className="mt-4">
+              <SocialLink href="https://www.linkedin.com/in/aramy23" icon={LinkedInIcon} className="mt-4">
                 Follow on LinkedIn
               </SocialLink>
               <SocialLink
