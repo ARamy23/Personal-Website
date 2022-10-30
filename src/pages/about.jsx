@@ -5,115 +5,10 @@ import portraitImage from '@/images/portrait.jpg'
 import SocialComponent from '@/components/SocialComponent'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import remarkGithub from 'remark-github'
-import remarkToc from 'remark-toc'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypeShiftHeading from 'rehype-shift-heading'
 import rehypeHighlight from 'rehype-highlight'
-import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter'
-import swift from 'react-syntax-highlighter/dist/cjs/languages/prism/swift'
-import rangeParser from 'parse-numeric-range'
-import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import clsx from 'clsx'
-
-SyntaxHighlighter.registerLanguage('swift', swift)
-
-const data = {
-  title: "Hi! I'm Ahmed Ramy 👋",
-  metaDescription:
-    'An iOS software engineer who enjoys building stuff and helping other building stuff.',
-}
-
-const ResponsiveImage = (props) => (
-  <Image alt={props.alt} layout="responsive" {...props} />
-)
-
-const HeaderClassNames = "font-bold transition ease-in-out duration-300 text-zinc-400 hover:text-zinc-900 hover:transition-all dark:text-zinc-400 hover:dark:text-zinc-200"
-const SpanHeaderClassNames = "text-base font-bold transition ease-in-out duration-300 text-blue-500 hover:text-blue-600 dark:text-teal-500 hover:transition-all"
-
-const H1 = (children) => (
-  <p className={clsx('text-4xl', HeaderClassNames)}>
-    <span className={clsx('hover:text-2xl', SpanHeaderClassNames)}>
-      #
-    </span>
-    <span> </span>
-    {children}
-  </p>
-)
-
-const H2 = (children) => (
-  <p className={clsx('text-3xl', HeaderClassNames)}>
-    <span className={clsx('hover:text-xl', SpanHeaderClassNames)}>
-      ##
-    </span>
-    <span> </span>
-    {children}
-  </p>
-)
-
-const H3 = (children) => (
-  <p className={clsx('text-2xl', HeaderClassNames)}>
-    <span className={clsx('hover:text-xl', SpanHeaderClassNames)}>
-      ###
-    </span>
-    <span> </span>
-    {children}
-  </p>
-)
-
-const H4 = (children) => (
-  <p className={clsx('text-xl', HeaderClassNames)}>
-    <span className={clsx('hover:text-lg', SpanHeaderClassNames)}>
-      ####
-    </span>
-    <span> </span>
-    {children}
-  </p>
-)
-
-const H5 = (children) => (
-  <p className={clsx('text-lg', HeaderClassNames)}>
-    <span className={clsx('hover:text-md', SpanHeaderClassNames)}>
-      #####
-    </span>
-    <span> </span>
-    {children}
-  </p>
-)
-
-const H6 = (children) => (
-  <p className={clsx('text-md', HeaderClassNames)}>
-    <span className={clsx('hover:text-md', SpanHeaderClassNames)}>
-      ######
-    </span>
-    <span> </span>
-    {children}
-  </p>
-)
-
-const Blockquote = (children) => (
-  <blockquote className="p-4 my-4 transition ease-in-out duration-300 text-lg font-semibold italic text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 hover:dark:text-zinc-200 border-l-4 border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 hover:dark:border-zinc-500">
-    <svg
-      aria-hidden="true"
-      className="h-4 w-4 transition duration-300 text-blue-400 dark:text-teal-500 hover:scale-150 hover:translate-x-1 hover:-translate-y-1"
-      viewBox="0 0 24 27"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"
-        fill="currentColor"
-      />
-    </svg>
-    <p>{children}</p>
-  </blockquote>
-)
-
-const Code = (props) => (
-  <code className="rounded bg-zinc-100 px-2 py-1 font-mono text-sm text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100">
-    {chidlren}
-  </code>
-)
+import CodeBlock from '@/components/CodeBlock'
+import Markdown from '@/components/Markdown'
 
 const markdown = `
 # A Journey to the top of the mountain
@@ -197,10 +92,37 @@ And another one who said
 
 Since then, I made it a goal, that whatever product-based company I join, must have a +ive impact, it's up to me to make that happen along with my team **In Shaa Allah (If God wills)**
 
-... WIP ...
+And after Camelan became a big hit in the UAE-ian market, to a degree allowing us to explore other markets, become VC-backed company, with lots of good reviews and fan-base, and a lovingn community,
+It was time for me to have a new chapter in my life, with more challenges, and more opportunities to learn (after all, I was still a 21 years old back then, so learning is what I believe anyone should do
+  at such age)
+
+## Once a Foodie, always a Foodie
+I joined LeanScale after, and worked on a very nice project, DCA, a shopify version, but for Food Industry giants, so our project was basically a white-labeling solution
+for multiple brands to provide their users with a native website and native mobile apps, and we were able to achieve that, and it was a great experience, I learned a lot, but there were also something extra to that
+
+I took my first baby steps into leadership, and proactively took my skills from [Camelan of building the fastest CI pipeline](https://blog.ahmedramy.me/how-i-decreased-cicd-build-time-from-55-mins-to-just-5-mins)
 `
 
-const syntaxTheme = oneDark
+const data = {
+  title: "Hi! I'm Ahmed Ramy 👋",
+  metaDescription:
+    'An iOS software engineer who enjoys building stuff and helping other building stuff.',
+}
+
+function Portrait() { 
+  return (
+    <div className="lg:pl-20">
+      <div className="max-w-xs px-2.5 lg:max-w-none">
+        <Image
+          src={portraitImage}
+          alt=""
+          sizes="(min-width: 1024px) 32rem, 20rem"
+          className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover transition duration-150 hover:-rotate-3 hover:shadow-lg hover:shadow-blue-500/50 dark:bg-zinc-800"
+        />
+      </div>
+    </div>
+  )
+}
 
 export default function About({ article }) {
   return (
@@ -211,75 +133,13 @@ export default function About({ article }) {
       </Head>
       <Container className="mt-16 sm:mt-32">
         <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-          <div className="lg:pl-20">
-            <div className="max-w-xs px-2.5 lg:max-w-none">
-              <Image
-                src={portraitImage}
-                alt=""
-                sizes="(min-width: 1024px) 32rem, 20rem"
-                className="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover transition duration-150 hover:-rotate-3 hover:shadow-lg hover:shadow-blue-500/50 dark:bg-zinc-800"
-              />
-            </div>
-          </div>
+          <Portrait />
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
               {data.title}
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-              <ReactMarkdown
-                children={markdown}
-                remarkPlugins={[remarkGfm]}
-                rehypePlugins={[rehypeHighlight]}
-                components={{
-                  h1: ({ node, children }) => H1(children),
-                  h2: ({ node, children }) => H2(children),
-                  h3: ({ node, children }) => H3(children),
-                  h4: ({ node, children }) => H4(children),
-                  h5: ({ node, children }) => H5(children),
-                  h6: ({ node, children }) => H6(children),
-                  blockquote: ({ node, children }) => Blockquote(children),
-                  // code({ node, inline, className, ...props }) {
-                  //   const match = /language-(\w+)/.exec(className || '')
-                  //   const hasMeta = node?.data?.meta
-
-                  //   const applyHighlights = (
-                  //     applyHighlights
-                  //   ) => {
-                  //     if (hasMeta) {
-                  //       const RE = /{([\d,-]+)}/
-                  //       const metadata = node.data.meta?.replace(/\s/g, '')
-                  //       const strlineNumbers = RE?.test(metadata)
-                  //         ? RE?.exec(metadata)[1]
-                  //         : '0'
-                  //       const highlightLines = rangeParser(strlineNumbers)
-                  //       const highlight = highlightLines
-                  //       const data = highlight.includes(applyHighlights)
-                  //         ? 'highlight'
-                  //         : null
-                  //       return { data }
-                  //     } else {
-                  //       return {}
-                  //     }
-                  //   }
-
-                  //   return match ? (
-                  //     <SyntaxHighlighter
-                  //       style={syntaxTheme}
-                  //       language={match[1]}
-                  //       PreTag="div"
-                  //       className="codeStyle"
-                  //       showLineNumbers={false}
-                  //       wrapLines={true}
-                  //       useInlineStyles={true}
-                  //       lineProps={applyHighlights}
-                  //       {...props}
-                  //     />
-                  //   ) : (
-                  //     <code className={className} {...props} />
-                  //   )
-                  // },
-                }}
-              />
+              <Markdown value={markdown} />
             </div>
           </div>
           <SocialComponent />
