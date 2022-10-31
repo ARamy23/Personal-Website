@@ -59,48 +59,9 @@ After 2 months into it, I was curious to check iOS, **and so it began**...
 Even though I knew it was kinda impossible to become an iOS developer without a Mac, and back then, I couldn't afford one myself
 But I was determined to learn it after seeing how beautiful the apps were, and how good Swift looked inside the code
 
-So, I hackintoshed my PC, and so began the journey
+So, I hackintoshed my PC, and after my first successful boot, I was greeted with a beautiful Apple logo, and I was so happy, I was finally in the Apple ecosystem
 
-# The Journey
-
-## Learning the ropes
-I took an offline course, and I learnt the basics of Swift, and built a simple app that would show the weather of a city
-On the side, I took an online course by Dr. Angela Yu, and I was already on my way to landing my first internship after 7 months of hard work
-
-## The Internship
-By the time I finished my first year at college, I landed an Internship in WiFi Metropolis, a local startup that evolved to what is now called 'Coral Technologies'
-
-The Internship was a great experience, I was working with a Sr. Engineer of 8 years of experience in the field, and he guided me to some key lessons
-Sadly I wasn't accepted into continuing after a month, but that was actually a key factor in being drived into learning more, and so... I landed a new Internship in elmenus
-
-## A Foodie in a land of Food
-elmenus was my first real opportunity, and Alhamdullelah (Thanks to God), I was able to nail it, all that 12 months hard work, paid off, and I was offered a full time offer
-in my 2nd month, from there, I was able to achieve lots of personal & career milestones, that I'd have never ever imagined to have done
-
-## A Pet to the rescue
-Early 2020, before the COVID-19 hits the world, I was offered a full-time job at Cognitev, where they were working on a secret project called 'Camelan'
-Camelan was one of the first projects I had which really had a +ive impact on people
-
-I still remember the quote of one of our users back then saying 
-
-> we saved his life from debts, because during the lockdown in UAE, all the pet stores were shut down
-> And he had no source of income any more.
-
-And another one who said
-
-> I am so grateful to Camelan, I found a pet by my side because I was going crazy, and thinking of ending my life, but my new friend (a dog) gave me some hope that there is still something to live for
-
-Since then, I made it a goal, that whatever product-based company I join, must have a +ive impact, it's up to me to make that happen along with my team **In Shaa Allah (If God wills)**
-
-And after Camelan became a big hit in the UAE-ian market, to a degree allowing us to explore other markets, become VC-backed company, with lots of good reviews and fan-base, and a lovingn community,
-It was time for me to have a new chapter in my life, with more challenges, and more opportunities to learn (after all, I was still a 21 years old back then, so learning is what I believe anyone should do
-  at such age)
-
-## Once a Foodie, always a Foodie
-I joined LeanScale after, and worked on a very nice project, DCA, a shopify version, but for Food Industry giants, so our project was basically a white-labeling solution
-for multiple brands to provide their users with a native website and native mobile apps, and we were able to achieve that, and it was a great experience, I learned a lot, but there were also something extra to that
-
-I took my first baby steps into leadership, and proactively took my skills from [Camelan of building the fastest CI pipeline](https://blog.ahmedramy.me/how-i-decreased-cicd-build-time-from-55-mins-to-just-5-mins)
+> And so began the journey.
 `
 
 const data = {
