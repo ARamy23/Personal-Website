@@ -1,4 +1,4 @@
-import Image from 'next/future/image'
+import Image from 'next/image'
 import Head from 'next/head'
 import Link from 'next/link'
 import clsx from 'clsx'
@@ -13,6 +13,8 @@ import {
   GitHubIcon,
   LinkedInIcon,
 } from '@/components/SocialIcons'
+
+import { formatDate } from '@/lib/formatDate'
 import portraitImage from '@/images/portrait.jpg'
 import SocialComponent from '@/components/SocialComponent'
 
@@ -94,12 +96,12 @@ export default function About({ article }) {
 }
 
 export async function getStaticProps() {
+  const articles = await getAllArticles()
+  const filteredArticles = articles.filter(article => article.slug === 'about-me')
+
   return {
     props: {
-      // First article that contains 'about-me' as a name
-      article: (await getAllArticles())
-      .map(({ component, ...meta }) => meta)
-      .filter(({ meta }) => meta.slug === 'about-me'),
+      article: filteredArticles[0] || null, // Pass the first matched article or null if none found
     },
   }
 }
