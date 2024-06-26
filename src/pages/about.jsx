@@ -4,6 +4,9 @@ import Link from 'next/link'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
+import { Card } from '@/components/Card'
+import { SimpleLayout } from '@/components/SimpleLayout'
+import { getAllArticles } from '@/lib/getAllArticles'
 import {
   TwitterIcon,
   InstagramIcon,
@@ -19,7 +22,44 @@ const data = {
     'An iOS software engineer who enjoys building stuff and helping other building stuff.',
 }
 
-export default function About() {
+function Article({ article }) {
+  if (article) { 
+    return (
+      <article className="md:grid md:grid-cols-4 md:items-baseline">
+        <Card className="md:col-span-3">
+          <Card.Title href={`/articles/${article.slug}`}>
+            {article.title}
+          </Card.Title>
+          <Card.Eyebrow
+            as="time"
+            dateTime={article.date}
+            className="md:hidden"
+            decorate
+          >
+            {formatDate(article.date)}
+          </Card.Eyebrow>
+          <Card.Description>{article.description}</Card.Description>
+          <Card.Cta>Read article</Card.Cta>
+        </Card>
+        <Card.Eyebrow
+          as="time"
+          dateTime={article.date}
+          className="mt-1 hidden md:block"
+        >
+          {formatDate(article.date)}
+        </Card.Eyebrow>
+      </article>
+    )
+  } else { 
+    return (
+      <p>
+        No articles yet.
+      </p>
+    )
+  }
+}
+
+export default function About({ article }) {
   return (
     <>
       <Head>
@@ -43,26 +83,7 @@ export default function About() {
               {data.title}
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-            <p>
-                I started my journey with Computers back when I was 5, always
-                been fascinated by all those moving bits that ends up as a
-                spaceship game or angry chicken flying around 🐔 <br /> <br /> 
-                And that passion about Computers never faded, whether movies, games,
-                interactive stories, or even the internet, there was always
-                someting to admire about them <br /> <br /> 
-            </p>
-
-            <p>
-                And as years went on, that curiousness about how these things work has led me to watch a
-                video about programming, the moment I compiled something with a bunch of if, else, switches and loops, I knew I found my new
-                addiction <br />  <br /> 
-                
-                So you can say 2016 was the year of pivoting, I was in
-                High School, I started taking CS50 course, there I e-met
-                wonderful people, Dr. Malan, Doug Lloyd, and many others of the
-                staff and the community that am so grateful to have met and
-                learned from
-              </p>
+              <Article article={article} />
             </div>
           </div>
           <SocialComponent />
@@ -70,4 +91,15 @@ export default function About() {
       </Container>
     </>
   )
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      // First article that contains 'about-me' as a name
+      article: (await getAllArticles())
+      .map(({ component, ...meta }) => meta)
+      .filter(({ meta }) => meta.slug === 'about-me'),
+    },
+  }
 }
