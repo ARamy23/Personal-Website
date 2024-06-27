@@ -6,7 +6,10 @@ import { serialize } from 'next-mdx-remote/serialize';
 import { ArticleLayout } from '@/components/ArticleLayout';
 import { formatDate } from '@/lib/formatDate';
 import { components } from '@/components/CustomMDXComponents';
-import 'tailwindcss/tailwind.css'; // Ensure Tailwind CSS is imported
+import remarkGfm from 'remark-gfm';
+import rehypePrism from '@mapbox/rehype-prism';
+import { convertCallouts } from '@/lib/convertCallouts';
+import 'tailwindcss/tailwind.css';
 
 export default function Article({ article, mdxSource, previousPathname }) {
   const router = useRouter();
@@ -61,12 +64,20 @@ export async function getStaticProps({ params }) {
     date: articleData.attributes.date,
   };
 
-  const mdxSource = await serialize(article.content, {
+  console.log('Original content:', article.content);
+
+  const processedContent = convertCallouts(article.content);
+
+  console.log('Processed content:', processedContent);
+
+  const mdxSource = await serialize(processedContent, {
     mdxOptions: {
-      remarkPlugins: [remarkGfm, remarkCallout],
+      remarkPlugins: [remarkGfm],
       rehypePlugins: [rehypePrism],
     },
   });
+
+  console.log('Serialized MDX source:', mdxSource);
 
   return {
     props: {

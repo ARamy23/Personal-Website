@@ -8,8 +8,9 @@ export default function remarkCallout() {
         const type = match[1];
         parent.children[index] = {
           type: 'jsx',
-          value: `<Callout type="${type}">\n${node.value}\n</Callout>`,
+          value: `<Callout type="${type}">${node.value}</Callout>`,
         };
+        console.log(`Transforming callout of type: ${type}, content: ${node.value}`);
       }
     });
   };

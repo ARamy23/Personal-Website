@@ -13,8 +13,7 @@ module.exports = {
             '--tw-prose-links': 'var(--tw-prose-invert-links)',
             '--tw-prose-links-hover': 'var(--tw-prose-invert-links-hover)',
             '--tw-prose-underline': 'var(--tw-prose-invert-underline)',
-            '--tw-prose-underline-hover':
-              'var(--tw-prose-invert-underline-hover)',
+            '--tw-prose-underline-hover': 'var(--tw-prose-invert-underline-hover)',
             '--tw-prose-bold': 'var(--tw-prose-invert-bold)',
             '--tw-prose-counters': 'var(--tw-prose-invert-counters)',
             '--tw-prose-bullets': 'var(--tw-prose-invert-bullets)',
@@ -178,109 +177,6 @@ module.exports = {
               marginTop: theme('spacing.6'),
               marginBottom: theme('spacing.6'),
               paddingLeft: theme('spacing[3.5]'),
-            },
-            'li::marker': {
-              fontSize: theme('fontSize.sm')[0],
-              fontWeight: theme('fontWeight.semibold'),
-            },
-            'ol > li::marker': {
-              color: 'var(--tw-prose-counters)',
-            },
-            'ul > li::marker': {
-              color: 'var(--tw-prose-bullets)',
-            },
-            'li :is(ol, ul)': {
-              marginTop: theme('spacing.4'),
-              marginBottom: theme('spacing.4'),
-            },
-            'li :is(li, p)': {
-              marginTop: theme('spacing.3'),
-              marginBottom: theme('spacing.3'),
-            },
-
-            // Code blocks
-            pre: {
-              color: 'var(--tw-prose-pre-code)',
-              fontSize: theme('fontSize.sm')[0],
-              fontWeight: theme('fontWeight.medium'),
-              backgroundColor: 'var(--tw-prose-pre-bg)',
-              borderRadius: theme('borderRadius.3xl'),
-              padding: theme('spacing.8'),
-              overflowX: 'auto',
-              border: '1px solid',
-              borderColor: 'var(--tw-prose-pre-border)',
-            },
-            'pre code': {
-              display: 'inline',
-              color: 'inherit',
-              fontSize: 'inherit',
-              fontWeight: 'inherit',
-              backgroundColor: 'transparent',
-              borderRadius: 0,
-              padding: 0,
-            },
-
-            // Horizontal rules
-            hr: {
-              marginTop: theme('spacing.20'),
-              marginBottom: theme('spacing.20'),
-              borderTopWidth: '1px',
-              borderColor: 'var(--tw-prose-hr)',
-              '@screen lg': {
-                marginLeft: `calc(${theme('spacing.12')} * -1)`,
-                marginRight: `calc(${theme('spacing.12')} * -1)`,
-              },
-            },
-
-            // Tables
-            table: {
-              width: '100%',
-              tableLayout: 'auto',
-              textAlign: 'left',
-              fontSize: theme('fontSize.sm')[0],
-            },
-            thead: {
-              borderBottomWidth: '1px',
-              borderBottomColor: 'var(--tw-prose-th-borders)',
-            },
-            'thead th': {
-              color: 'var(--tw-prose-headings)',
-              fontWeight: theme('fontWeight.semibold'),
-              verticalAlign: 'bottom',
-              paddingBottom: theme('spacing.2'),
-            },
-            'thead th:not(:first-child)': {
-              paddingLeft: theme('spacing.2'),
-            },
-            'thead th:not(:last-child)': {
-              paddingRight: theme('spacing.2'),
-            },
-            'tbody tr': {
-              borderBottomWidth: '1px',
-              borderBottomColor: 'var(--tw-prose-td-borders)',
-            },
-            'tbody tr:last-child': {
-              borderBottomWidth: 0,
-            },
-            'tbody td': {
-              verticalAlign: 'baseline',
-            },
-            tfoot: {
-              borderTopWidth: '1px',
-              borderTopColor: 'var(--tw-prose-th-borders)',
-            },
-            'tfoot td': {
-              verticalAlign: 'top',
-            },
-            ':is(tbody, tfoot) td': {
-              paddingTop: theme('spacing.2'),
-              paddingBottom: theme('spacing.2'),
-            },
-            ':is(tbody, tfoot) td:not(:first-child)': {
-              paddingLeft: theme('spacing.2'),
-            },
-            ':is(tbody, tfoot) td:not(:last-child)': {
-              paddingRight: theme('spacing.2'),
             },
           },
         },
