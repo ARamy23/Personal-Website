@@ -185,7 +185,7 @@ export default function Home({ articles }) {
         </title>
         <meta
           name="description"
-          content="Hi! I'm Ahmed Ramy, a Senior iOS Engineer who enjoys building stuff and helping others build stuff. I'm passionate about Swift, Software Design and Architecture, and the Apple Ecosystem."
+    content="Hi! I&apos;m Ahmed Ramy, a Senior iOS Engineer who enjoys building stuff and helping others build stuff. I&apos;m passionate about Swift, Software Design and Architecture, and the Apple Ecosystem."
         />
       </Head>
       <Container className="mt-9">
