@@ -1,7 +1,6 @@
 import nextMDX from '@next/mdx';
 import remarkGfm from 'remark-gfm';
 import rehypePrism from '@mapbox/rehype-prism';
-import remarkCallout from './src/lib/remarkCallout.js';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -16,7 +15,7 @@ const nextConfig = {
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkGfm, remarkCallout],
+    remarkPlugins: [remarkGfm],
     rehypePlugins: [rehypePrism],
   },
 });

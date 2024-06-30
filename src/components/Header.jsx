@@ -274,7 +274,7 @@ function Avatar({ large = false, className, ...props }) {
   )
 }
 
-export function Header() {
+export default function Header() {
   let isHomePage = useRouter().pathname === '/'
 
   let headerRef = useRef()

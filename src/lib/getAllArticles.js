@@ -28,8 +28,6 @@ export async function getAllArticles() {
 
   try {
     const { data } = await client.query({ query });
-    console.log('Received response:', data);
-    console.log('Data Structure:', data.publication.posts.edges);
 
     const articles = data.publication.posts.edges.map((post) => ({
       title: post.node.title,

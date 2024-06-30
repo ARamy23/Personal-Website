@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Container } from '@/components/Container';
-import { formatDate } from '@/lib/formatDate';
+import formatDate from '@/lib/formatDate';
 import { Prose } from '@/components/Prose';
 
 function ArrowLeftIcon(props) {
@@ -17,7 +17,7 @@ function ArrowLeftIcon(props) {
   );
 }
 
-export function ArticleLayout({ children, meta, isRssFeed = false, previousPathname }) {
+export default function ArticleLayout({ children, meta, isRssFeed = false, previousPathname }) {
   let router = useRouter();
 
   if (isRssFeed) {

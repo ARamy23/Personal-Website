@@ -1,17 +1,8 @@
 import Image from 'next/image'
 import Head from 'next/head'
-import Link from 'next/link'
-import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import {
-  TwitterIcon,
-  InstagramIcon,
-  GitHubIcon,
-  LinkedInIcon,
-} from '@/components/SocialIcons'
 
-import { formatDate } from '@/lib/formatDate'
 import portraitImage from '@/images/portrait.jpg'
 import SocialComponent from '@/components/SocialComponent'
 

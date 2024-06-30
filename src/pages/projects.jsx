@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Head from 'next/head'
 
-import { Card } from '@/components/Card'
-import { SimpleLayout } from '@/components/SimpleLayout'
+import Card from '@/components/Card'
+import SimpleLayout from '@/components/SimpleLayout'
 
 import logoCAFU from '@/images/logos/cafu.svg'
 import logoSWVL from '@/images/logos/swvl.svg'

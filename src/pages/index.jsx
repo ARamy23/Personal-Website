@@ -1,26 +1,25 @@
-import Image from 'next/image'
-import Head from 'next/head'
-import Link from 'next/link'
-import clsx from 'clsx'
+import Image from 'next/image';
+import Head from 'next/head';
+import Link from 'next/link';
+import clsx from 'clsx';
 
-import { Button } from '@/components/Button'
-import { Card } from '@/components/Card'
-import { Container } from '@/components/Container'
+import Button from '@/components/Button';
+import Card from '@/components/Card';
+import { Container } from '@/components/Container';
 import {
   TwitterIcon,
-  InstagramIcon,
   GitHubIcon,
   LinkedInIcon,
-} from '@/components/SocialIcons'
-import image1 from '@/images/photos/elmenus-showcase.svg'
-import image2 from '@/images/photos/swvl-showcase.jpeg'
-import image3 from '@/images/portrait.jpg'
-import image4 from '@/images/photos/cafu-showcase.svg'
-import image5 from '@/images/photos/dca-showcase.svg'
-import { generateRssFeed } from '@/lib/generateRssFeed'
-import { getAllArticles } from '@/lib/getAllArticles'
-import { formatDate } from '@/lib/formatDate'
-import Feed from '@/components/Feed'
+} from '@/components/SocialIcons';
+import image1 from '@/images/photos/elmenus-showcase.svg';
+import image2 from '@/images/photos/swvl-showcase.jpeg';
+import image3 from '@/images/portrait.jpg';
+import image4 from '@/images/photos/cafu-showcase.svg';
+import image5 from '@/images/photos/dca-showcase.svg';
+import { generateRssFeed } from '@/lib/generateRssFeed';
+import { getAllArticles } from '@/lib/getAllArticles';
+import formatDate from '@/lib/formatDate';
+import Feed from '@/components/Feed';
 
 function MailIcon(props) {
   return (
@@ -42,7 +41,7 @@ function MailIcon(props) {
         className="stroke-zinc-400 dark:stroke-zinc-500"
       />
     </svg>
-  )
+  );
 }
 
 function BriefcaseIcon(props) {
@@ -65,7 +64,7 @@ function BriefcaseIcon(props) {
         className="stroke-zinc-400 dark:stroke-zinc-500"
       />
     </svg>
-  )
+  );
 }
 
 function ArrowDownIcon(props) {
@@ -78,7 +77,7 @@ function ArrowDownIcon(props) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
 function Article({ article }) {
@@ -93,7 +92,7 @@ function Article({ article }) {
       <Card.Description>{article.description}</Card.Description>
       <Card.Cta>Read article</Card.Cta>
     </Card>
-  )
+  );
 }
 
 function SocialLink({ icon: Icon, ...props }) {
@@ -101,7 +100,7 @@ function SocialLink({ icon: Icon, ...props }) {
     <Link className="group -m-1 p-1" {...props}>
       <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
     </Link>
-  )
+  );
 }
 
 function Newsletter() {
@@ -130,7 +129,7 @@ function Newsletter() {
         </Button>
       </div>
     </form>
-  )
+  );
 }
 
 function Resume() {
@@ -140,17 +139,17 @@ function Resume() {
         <BriefcaseIcon className="h-6 w-6 flex-none" />
         <span className="ml-3">Work</span>
       </h2>
-      <Feed/>
+      <Feed />
       <Button href="#" variant="secondary" className="group mt-6 w-full">
         Download CV
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
     </div>
-  )
+  );
 }
 
 function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
+  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2'];
 
   return (
     <div className="mt-16 sm:mt-20">
@@ -173,7 +172,7 @@ function Photos() {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export default function Home({ articles }) {
@@ -185,16 +184,18 @@ export default function Home({ articles }) {
         </title>
         <meta
           name="description"
-    content="Hi! I&apos;m Ahmed Ramy, a Senior iOS Engineer who enjoys building stuff and helping others build stuff. I&apos;m passionate about Swift, Software Design and Architecture, and the Apple Ecosystem."
+          content="Hi! I&apos;m Ahmed Ramy, a Senior iOS Engineer who enjoys building stuff and helping others build stuff. I&apos;m passionate about Swift, Software Design and Architecture, and the Apple Ecosystem."
         />
       </Head>
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-          Senior iOS Engineer
+            Senior iOS Engineer
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-          Hi! I'm Ahmed Ramy, a Senior iOS Engineer who enjoys building stuff and helping others build stuff. I'm passionate about Swift, Software Design and Architecture, and the Apple Ecosystem.
+            Hi! I&apos;m Ahmed Ramy, a Senior iOS Engineer who enjoys building
+            stuff and helping others build stuff. I&apos;m passionate about
+            Swift, Software Design and Architecture, and the Apple Ecosystem.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
@@ -220,7 +221,7 @@ export default function Home({ articles }) {
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
             {articles.map((article) => (
-              <Article key={article.slug} article={article} />
+              <Article key={article.url} article={article} />
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
@@ -230,19 +231,19 @@ export default function Home({ articles }) {
         </div>
       </Container>
     </>
-  )
+  );
 }
 
 export async function getStaticProps() {
   if (process.env.NODE_ENV === 'production') {
-    await generateRssFeed()
+    await generateRssFeed();
   }
+
+  const articles = (await getAllArticles()).map(({ component, ...meta }) => meta);
 
   return {
     props: {
-      articles: (await getAllArticles())
-        .slice(0, 5)
-        .map(({ component, ...meta }) => meta),
+      articles,
     },
-  }
+  };
 }
