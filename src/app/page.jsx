@@ -16,7 +16,6 @@ import image2 from '@/images/photos/swvl-showcase.jpeg';
 import image3 from '@/images/portrait.jpg';
 import image4 from '@/images/photos/cafu-showcase.svg';
 import image5 from '@/images/photos/dca-showcase.svg';
-import { generateRssFeed } from '@/lib/generateRssFeed';
 import { getAllArticles } from '@/lib/getAllArticles';
 import formatDate from '@/lib/formatDate';
 import Feed from '@/components/Feed';
@@ -175,7 +174,9 @@ function Photos() {
   );
 }
 
-export default function Home({ articles }) {
+export default async function Home() {
+  let articles = (await getAllArticles()).slice(0, 5)
+
   return (
     <>
       <Head>
@@ -190,10 +191,10 @@ export default function Home({ articles }) {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Senior iOS Engineer
+            Hi there!
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            Hi! I&apos;m Ahmed Ramy, a Senior iOS Engineer who enjoys building
+            I&apos;m Ahmed Ramy, a Senior iOS Engineer who enjoys building
             stuff and helping others build stuff. I&apos;m passionate about
             Swift, Software Design and Architecture, and the Apple Ecosystem.
           </p>
@@ -234,16 +235,3 @@ export default function Home({ articles }) {
   );
 }
 
-export async function getStaticProps() {
-  if (process.env.NODE_ENV === 'production') {
-    await generateRssFeed();
-  }
-
-  const articles = (await getAllArticles()).map(({ component, ...meta }) => meta);
-
-  return {
-    props: {
-      articles,
-    },
-  };
-}
