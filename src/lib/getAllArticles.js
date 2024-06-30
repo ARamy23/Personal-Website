@@ -1,23 +1,55 @@
-import glob from 'fast-glob'
-import * as path from 'path'
-import axios from 'axios'
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
-async function importArticle(articleFilename) {
-  let { meta } = await import(`../pages/articles/${articleFilename}`)
-  return {
-    slug: articleFilename.replace(/(\/index)?\.mdx$/, ''),
-    ...meta,
-  }
-}
+const client = new ApolloClient({
+  uri: 'https://gql.hashnode.com',
+  cache: new InMemoryCache(),
+});
 
 export async function getAllArticles() {
-  const response = await axios.get('http://localhost:1337/api/articles');
-  const articles = response.data.data.map((article) => ({
-    title: article.attributes.title,
-    slug: article.attributes.slug,
-    description: article.attributes.description,
-    date: article.attributes.date,
-  }));
-  
-  return articles.sort((a, z) => new Date(z.date) - new Date(a.date));
+  const query = gql`
+  query Publication {
+    publication(host: "blog.ahmedramy.me") {
+      title
+      posts(first: 10) {
+        edges {
+          node {
+            title
+            subtitle
+            brief
+            publishedAt
+            coverImage { url }
+            url
+          }
+        }
+      }
+    }
+  }
+  `;
+
+  try {
+    const { data } = await client.query({ query });
+    console.log('Received response:', data);
+    console.log('Data Structure:', data.publication.posts.edges);
+
+    const articles = data.publication.posts.edges.map((post) => ({
+      title: post.node.title,
+      subtitle: post.node.subtitle || post.node.brief,
+      coverImage: post.node.coverImage ? post.node.coverImage.url : '',
+      date: post.node.publishedAt,
+      url: post.node.url
+    }));
+
+    return articles;
+  } catch (error) {
+    console.error('Error fetching articles:', error);
+    if (error.networkError) {
+      console.error('Network Error:', error.networkError);
+    }
+    if (error.graphQLErrors) {
+      error.graphQLErrors.forEach(({ message, locations, path }) => {
+        console.error(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`);
+      });
+    }
+    throw error;
+  }
 }

@@ -8,6 +8,9 @@ const nextConfig = {
   pageExtensions: ['jsx', 'mdx'],
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: ['cdn.hashnode.com'],
+  },
 };
 
 const withMDX = nextMDX({
