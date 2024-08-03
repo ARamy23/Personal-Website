@@ -57,13 +57,9 @@ const tools_development = [
     description: "For stuff that are outside of the 'One'.",
   },
   {
-    title: 'Hyper',
+    title: 'Warp',
     description:
-      'A brilliant Terminal combined with Oh-My-ZSH, Fig, and Plugins.',
-  },
-  {
-    title: 'Fig',
-    description: 'A great plugins manager for terminals.',
+      'An AI Terminal combined with Oh-My-ZSH, Fig, and Plugins.',
   },
 ]
 

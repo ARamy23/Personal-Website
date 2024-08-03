@@ -9,13 +9,23 @@ import logoCamelan from '@/images/logos/camelan.svg'
 import Image from 'next/image'
 
 const resume = [
+  {
+    company: 'CAFU',
+    title: 'iOS Software Engineer - Sr.',
+    logo: logoCAFU,
+    start: 'December 2023',
+    end: {
+      label: 'Present',
+      dateTime: new Date().getFullYear(),
+    },
+  },
     {
       company: 'CAFU',
       title: 'iOS Software Engineer',
       logo: logoCAFU,
       start: 'August 2022',
       end: {
-        label: 'Present',
+        label: 'December 2023',
         dateTime: new Date().getFullYear(),
       },
     },
@@ -28,7 +38,7 @@ const resume = [
     },
     {
       company: 'SQ10',
-      title: 'iOS Software Engineer - Sr.',
+      title: 'iOS Software Engineer - III.',
       logo: logoSQ10,
       start: 'Oct 2021',
       end: 'Feb 2022',
@@ -42,14 +52,14 @@ const resume = [
     },
     {
       company: 'DCA - LeanScale',
-      title: 'iOS Software Engineer - Mid.',
+      title: 'iOS Software Engineer - II',
       logo: logoDCA,
       start: 'Sep 2020',
       end: 'Aug 2021',
     },
     {
       company: 'Camlist (Previously Camelan)',
-      title: 'iOS Software Engineer - Mid.',
+      title: 'iOS Software Engineer - II',
       logo: logoCamelan,
       start: 'Jan 2020',
       end: 'Sep 2020',
@@ -67,21 +77,30 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-function Promotion() { 
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-        className="h-5 w-5"
-      >
-        <path
-          fillRule="evenodd"
-          d="M9.664 1.319a.75.75 0 01.672 0 41.059 41.059 0 018.198 5.424.75.75 0 01-.254 1.285 31.372 31.372 0 00-7.86 3.83.75.75 0 01-.84 0 31.508 31.508 0 00-2.08-1.287V9.394c0-.244.116-.463.302-.592a35.504 35.504 0 013.305-2.033.75.75 0 00-.714-1.319 37 37 0 00-3.446 2.12A2.216 2.216 0 006 9.393v.38a31.293 31.293 0 00-4.28-1.746.75.75 0 01-.254-1.285 41.059 41.059 0 018.198-5.424zM6 11.459a29.848 29.848 0 00-2.455-1.158 41.029 41.029 0 00-.39 3.114.75.75 0 00.419.74c.528.256 1.046.53 1.554.82-.21.324-.455.63-.739.914a.75.75 0 101.06 1.06c.37-.369.69-.77.96-1.193a26.61 26.61 0 013.095 2.348.75.75 0 00.992 0 26.547 26.547 0 015.93-3.95.75.75 0 00.42-.739 41.053 41.053 0 00-.39-3.114 29.925 29.925 0 00-5.199 2.801 2.25 2.25 0 01-2.514 0c-.41-.275-.826-.541-1.25-.797a6.985 6.985 0 01-1.084 3.45 26.503 26.503 0 00-1.281-.78A5.487 5.487 0 006 12v-.54z"
-          clipRule="evenodd"
-        />
-      </svg>
-    )
+function calculateDuration(start, end) {
+  const startDate = new Date(start);
+  const endDate = end === 'Present' ? new Date() : new Date(end);
+  const durationInMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth());
+  const years = Math.floor(durationInMonths / 12);
+  const months = durationInMonths % 12;
+  return `${years > 0 ? `${years} yr${years > 1 ? 's' : ''} ` : ''}${months > 0 ? `${months} mo${months > 1 ? 's' : ''}` : ''}`.trim();
+}
+
+function Promotion() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      className="h-5 w-5"
+    >
+      <path
+        fillRule="evenodd"
+        d="M9.664 1.319a.75.75 0 01.672 0 41.059 41.059 0 018.198 5.424.75.75 0 01-.254 1.285 31.372 31.372 0 00-7.86 3.83.75.75 0 01-.84 0 31.508 31.508 0 00-2.08-1.287V9.394c0-.244.116-.463.302-.592a35.504 35.504 0 013.305-2.033.75.75 0 00-.714-1.319 37 37 0 00-3.446 2.12A2.216 2.216 0 006 9.393v.38a31.293 31.293 0 00-4.28-1.746.75.75 0 01-.254-1.285 41.059 41.059 0 018.198-5.424zM6 11.459a29.848 29.848 0 00-2.455-1.158 41.029 41.029 0 00-.39 3.114.75.75 0 00.419.74c.528.256 1.046.53 1.554.82-.21.324-.455.63-.739.914a.75.75 0 101.06 1.06c.37-.369.69-.77.96-1.193a26.61 26.61 0 013.095 2.348.75.75 0 00.992 0 26.547 26.547 0 015.93-3.95.75.75 0 00.42-.739 41.053 41.053 0 00-.39-3.114 29.925 29.925 0 00-5.199 2.801 2.25 2.25 0 01-2.514 0c-.41-.275-.826-.541-1.25-.797a6.985 6.985 0 01-1.084 3.45 26.503 26.503 0 00-1.281-.78A5.487 5.487 0 006 12v-.54z"
+        clipRule="evenodd"
+      />
+    </svg>
+  )
 }
 
 export default function Feed() {
@@ -101,6 +120,10 @@ export default function Feed() {
               <dt className="sr-only">Role</dt>
               <dd className="text-xs text-zinc-500 dark:text-zinc-400">
                 {role.title}
+              </dd>
+              <dt className="sr-only">Duration</dt>
+              <dd className="text-xs text-blue-500 dark:text-blue-400">
+                {calculateDuration(role.start, role.end.label || role.end)}
               </dd>
             </dl>
           </li>

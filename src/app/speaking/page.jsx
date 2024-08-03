@@ -28,17 +28,31 @@ function Appearance({ title, description, event, cta, href }) {
 const appearances = [
   {
     href: '#',
-    title: 'Swift Going Beyond Using Vapor',
-    description: 'A talk about Vapor, a web framework for Swift which was able to build a production-ready backend for a mobile app, with crazy performance numbers.',
-    event: 'SwiftCairo 5th Meetup',
-    cta: 'Watch the meetup'
+    title: 'Swift Tooling',
+    description: "A talk creating your own tools, boost yours and your teams productivity, and ensure quality and move towards seniority",
+    event: 'SwiftCairo 15th Meetup',
+    cta: 'Watch the talk'
   },
   {
-    href: '#',
+    href: 'https://github.com/SwiftCairo/MeetupSessions/tree/master?tab=readme-ov-file#13th-meetup-18012023',
+    title: 'Architecture Homicide',
+    description: "A talk about Common pitfalls and mistakes that affect the architecture, design stamina and the team's overall productivity, and how to identify them and solve them in a funny manner without triggers",
+    event: 'SwiftCairo 13th Meetup',
+    cta: 'Watch the talk'
+  },
+  {
+    href: 'https://github.com/SwiftCairo/MeetupSessions/tree/master?tab=readme-ov-file#7th-meetup-24419',
+    title: 'Swift Going Beyond Using Vapor',
+    description: 'A talk about Vapor, a web framework for Swift which was able to build a production-ready backend for a mobile app, with crazy performance numbers.',
+    event: 'SwiftCairo 7th Meetup',
+    cta: 'See the demo & the slides'
+  },
+  {
+    href: 'https://github.com/SwiftCairo/MeetupSessions/tree/master?tab=readme-ov-file#second-meetup-20618',
     title: 'Blogging',
     description: 'A talk about blogging, sharing & the importancy of giving back, and the butterfly effect that blogging can cause in the lives of those who read them.',
     event: 'SwiftCairo 2nd Meetup',
-    cta: 'Watch the meetup'
+    cta: 'See the demo & the slides'
   }
 ]
 
