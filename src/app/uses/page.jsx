@@ -105,7 +105,7 @@ const tools_productivity = [
   {
     title: 'Numi',
     description:
-      "It's an IDE + a Calculator, very handy when taking notes into .",
+      "It's an IDE + a Calculator, very handy when taking 'financial' notes.",
   },
 ]
 

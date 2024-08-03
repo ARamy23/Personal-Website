@@ -11,46 +11,48 @@ import logoDCA from '@/images/logos/dca.svg'
 import logoCamelan from '@/images/logos/camelan.svg'
 import logoElmenus from '@/images/logos/elmenus.svg'
 
+// Descriptions for the page
+const pageDescription = {
+  title: "Projects - Ahmed Ramy",
+  metaDescription: "Projects I've contributed to, aiming to create a positive impact.",
+  pageTitle: "Projects I've Contributed To",
+  intro: "I've had the privilege to work on various projects over the years. Here are some that I'm particularly proud of, each with its own unique impact and potential to make a difference.",
+}
+
 const projects = [
   {
     name: 'CAFU',
-    description:
-      "World's first Fuel Delivery App.",
+    description: "World's first Fuel Delivery App.",
     link: { href: 'https://cafu.com', label: 'cafu.com' },
     logo: logoCAFU,
   },
   {
     name: 'SWVL',
-    description:
-      'World-class commute solution via Buses.',
+    description: 'World-class commute solution via Buses.',
     link: { href: 'https://swvl.com', label: 'swvl.com' },
     logo: logoSWVL,
   },
   {
     name: 'Proba',
-    description:
-      'Digital Identity platform, to empower a better, secure and safer digital world.',
+    description: 'Digital Identity platform, to empower a better, secure and safer digital world.',
     link: { href: '#', label: 'proba.com' },
     logo: logoProba,
   },
   {
     name: 'DCA',
-    description:
-      'Shopfiy, but for Leading Food Brands.',
+    description: 'Shopify, but for Leading Food Brands.',
     link: { href: 'https://www.dcafood.com/', label: 'dca.com' },
     logo: logoDCA,
   },
   {
     name: 'Camlist - Just Pets (Previously Camelan)',
-    description:
-      'A social community around pets adoption & selling which is built upon trust & security.',
+    description: 'A social community around pet adoption & selling built upon trust & security.',
     link: { href: 'https://apps.apple.com/us/app/camlist-just-pets/id1490601854', label: 'camlist.com' },
     logo: logoCamelan,
   },
   {
     name: 'elmenus',
-    description:
-      'Bringing the food online ordering platform to Egypt.',
+    description: 'Bringing the food online ordering platform to Egypt.',
     link: { href: 'https://www.elmenus.com', label: 'elmenus.com' },
     logo: logoElmenus,
   },
@@ -71,15 +73,15 @@ export default function Projects() {
   return (
     <>
       <Head>
-        <title>Projects - Ahmed Ramy</title>
+        <title>{pageDescription.title}</title>
         <meta
           name="description"
-          content="Things I’ve been honored to contribute to and help make the world a better place."
+          content={pageDescription.metaDescription}
         />
       </Head>
       <SimpleLayout
-        title="Things I’ve been honored to contribute to and help make the world a better place."
-        intro="I’ve worked on tons of other little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+        title={pageDescription.pageTitle}
+        intro={pageDescription.intro}
       >
         <ul
           role="list"
