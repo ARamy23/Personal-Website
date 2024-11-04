@@ -11,11 +11,11 @@ import {
   GitHubIcon,
   LinkedInIcon,
 } from '@/components/SocialIcons';
-import image1 from '@/images/photos/elmenus-showcase.svg';
-import image2 from '@/images/photos/swvl-showcase.jpeg';
+import image1 from '@/images/photos/elmenus-showcase.png';
+import image2 from '@/images/photos/swvl-showcase.png';
 import image3 from '@/images/portrait.jpg';
-import image4 from '@/images/photos/cafu-showcase.svg';
-import image5 from '@/images/photos/dca-showcase.svg';
+import image4 from '@/images/photos/cafu-showcase.png';
+import image5 from '@/images/photos/camelan-showcase.png';
 import { getAllArticles } from '@/lib/getAllArticles';
 import formatDate from '@/lib/formatDate';
 import Feed from '@/components/Feed';
